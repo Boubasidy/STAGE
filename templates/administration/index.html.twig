@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'Administration{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body {
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 600px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .btn-custom {
+       background-color: #1abc9c; 
+        border: none;
+        color: #ffffff; 
+        padding: 0 30px;
+        font-size: 20px;
+        margin: 0 10px;
+        border-radius: 25px; 
+        transition: all 0.3s ease;
+        text-decoration: none;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: row; 
+        align-items: center;
+        justify-content: center;
+        height: 90px; 
+        width: 200px;
+    }
+
+    .btn-custom:hover {
+        background-color: #16a085; 
+    }
+
+    .btn-custom:focus {
+        outline: none;
+    }
+    .btn-container a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px; /* définir la hauteur souhaitée */
+    padding: 0 20px; /* définir le rembourrage horizontal souhaité */
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="btn-container">
+    <a class="btn btn-custom" href="{{ path('app_maquette') }}"><i class="fas fa-ruler-combined"></i> Maquette</a>
+    <a class="btn btn-custom" href="{{ path('app_maquette') }}"><i class="fas fa-chart-pie"></i> Statistiques</a>
+    <a class="btn btn-custom" href="{{ path('app_etudiant') }}"><i class="fas fa-cogs"></i> Étudiant </a>
+
+</div>
+{% endblock %}

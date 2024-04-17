@@ -1,0 +1,78 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <style>
+    /* CSS personnalisé pour le formulaire */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .form-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 300;
+        color: #333;
+        margin-bottom: 40px;
+    }
+
+    .form-group {
+        margin-bottom: 30px;
+    }
+
+    .form-label {
+        display: block;
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #5cb85c;
+        box-shadow: 0px 0px 5px rgba(92, 184, 92, 0.3);
+    }
+
+    .form-submit {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        background-color: #5cb85c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .form-submit:hover {
+        background-color: #45a049;
+    }
+</style>
+
+{% endblock %}
+{% block body %}
+<div class="form-container">
+    <p class="form-title">Insertion des notes</p>
+    {{ form(form) }}
+</div>
+{% endblock body %}

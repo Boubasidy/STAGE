@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MaquetteController!{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block body %}
+
+    <br><br><br><br>
+
+    {% for filiere in filieres %}
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th colspan="3">Filiere: {{ filiere.nomFiliere }}</th>
+                <th><a href="{{ path(path, {'codefiliere': filiere.codefiliere}) }}">{{ message }}</a></th>
+            </tr>
+            {% for bloc in filiere.getBlocs() %}
+                <tr>
+                    <td class="block" colspan="3">Block: {{ bloc.nomBloc }}</td>
+                    <td>Note Plancher: {{ bloc.notePlancher }}</td>
+                </tr>
+                {% for unite in bloc.getUnites() %}
+                    <tr>
+                        <td colspan="3">Unite: {{ unite.nomUnite }} </td>
+                        <td>Coeficient: {{ unite.coeficient }}</td>
+                    </tr>
+                    {% for matiere in unite.getMatieres() %}
+                        <tr>
+                            <td class="periode">{{ matiere.periode }}</td>
+                            <td colspan="2">{{ matiere.nomMat }}</td>
+                            <td>
+                                {% for epreuve in matiere.getEpreuves() %}
+                                    {{ epreuve.typeEpreuve }} {{ epreuve.duree }} min<br>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+        </table>
+    {% endfor %}
+    <a href="{{ url(path2) }}">{{ message2 }}</a><br>
+{% endblock %}

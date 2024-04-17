@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <style>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        .table th,
+        .table td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f9f9f9;
+        }
+        .table-bordered {
+            border: 1px solid #ddd;
+        }
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #ddd;
+        }
+        .total {
+            color: green;
+            font-size: 18px;
+            background-color: #f2f9f2;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+{% set total = 0 %}
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Numéro Étudiant</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Sexe</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for etudiant in etudiants %}
+                <tr>
+                    <td>{{ etudiant.getNumetd }}</td>
+                    <td>{{ etudiant.getNom }}</td>
+                    <td>{{ etudiant.getPrenom }}</td>
+                    <td>{{ etudiant.getEmail }}</td>
+                    <td>{{ etudiant.getSexe }}</td>
+                </tr>
+                {% set total = total + 1 %}
+            {% endfor %}
+        </tbody>
+    </table>
+     <p class="total">Nombre total d'étudiants insérés avec succès : <b>{{ total }}</b></p>
+{% endblock body %}
